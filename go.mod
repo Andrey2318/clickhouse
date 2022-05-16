@@ -8,4 +8,4 @@ require (
 	gorm.io/gorm v1.23.4
 )
 
-replace github.com/ClickHouse/clickhouse-go => github.com/go-gorm/clickhouse-go v1.4.5
+replace github.com/ClickHouse/clickhouse-go => github.com/ClickHouse/clickhouse-go/v2 v2.0.14
