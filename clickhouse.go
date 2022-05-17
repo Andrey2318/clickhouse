@@ -5,6 +5,7 @@ import (
 	"database/sql"
 	"fmt"
 	"reflect"
+	"regexp"
 	"strings"
 
 	_ "github.com/ClickHouse/clickhouse-go/v2"
@@ -274,7 +275,7 @@ func (dialector Dialector) QuoteTo(writer clause.Writer, str string) {
 }
 
 func (dialector Dialector) Explain(sql string, vars ...interface{}) string {
-	return logger.ExplainSQL(sql, nil, `'`, vars...)
+	return logger.ExplainSQL(sql, regexp.MustCompile(`\$(\d+)`), `'`, vars...)
 }
 
 func (dialectopr Dialector) SavePoint(tx *gorm.DB, name string) error {
