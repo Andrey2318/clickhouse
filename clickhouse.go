@@ -22,6 +22,7 @@ type Config struct {
 	DriverName                string
 	DSN                       string
 	Conn                      gorm.ConnPool
+	Placeholder               *regexp.Regexp
 	DisableDatetimePrecision  bool
 	DontSupportRenameColumn   bool
 	SkipInitializeWithVersion bool
@@ -275,7 +276,7 @@ func (dialector Dialector) QuoteTo(writer clause.Writer, str string) {
 }
 
 func (dialector Dialector) Explain(sql string, vars ...interface{}) string {
-	return logger.ExplainSQL(sql, regexp.MustCompile(`\$(\d+)`), `'`, vars...)
+	return logger.ExplainSQL(sql, dialector.Placeholder, `'`, vars...)
 }
 
 func (dialectopr Dialector) SavePoint(tx *gorm.DB, name string) error {
