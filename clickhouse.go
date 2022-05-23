@@ -8,8 +8,8 @@ import (
 	"regexp"
 	"strings"
 
-	_ "github.com/ClickHouse/clickhouse-go/v2"
 	"github.com/hashicorp/go-version"
+	_ "github.com/mailru/go-clickhouse/v2"
 	"gorm.io/gorm"
 	"gorm.io/gorm/callbacks"
 	"gorm.io/gorm/clause"
