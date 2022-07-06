@@ -3,7 +3,9 @@ module gorm.io/driver/clickhouse
 go 1.14
 
 require (
-	github.com/hashicorp/go-version v1.4.0
-	github.com/mailru/go-clickhouse/v2 v2.0.0
-	gorm.io/gorm v1.23.5
+	 github.com/hashicorp/go-version v1.4.0
+	 github.com/mailru/go-clickhouse/v2 v2.0.0
+	 gorm.io/gorm v1.23.5
 )
+
+replace github.com/mailru/go-clickhouse/v2 => github.com/Andrey2318/go-clickhouse/v2 v2.0.1
